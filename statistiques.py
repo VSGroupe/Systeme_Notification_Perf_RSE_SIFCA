@@ -1,6 +1,7 @@
 # Statistiques mensuelles Collecte et Validation chaque du 02 du mois N-1
 from datetime import datetime
 
+from global_data import testMail
 from utils import sendMail
 
 # Statistiques mi-parcours Collecte et Validation chaque 10 15 20 25
@@ -202,7 +203,7 @@ def sendStatsMensuelles():
     </html>
     """
     subject = "Statistiques Mensuelles - Sucrivoire-Siège"
-    recipient_email = "fabdev6@gmail.com"
+    recipient_email = testMail
     sendMail(subject, statsMensuelles, recipient_email)
 
 

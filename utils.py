@@ -1,28 +1,21 @@
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import requests
 
+def sendMail(subject, bodyHtml, toEmail):
+    url = 'https://api-send-mail.onrender.com/api/send-mail'
 
-def sendMail(subject, bodyHtml, to_email):
-    try:
-        from_email = "ne-pas-repondre-visionstrategie@outlook.fr"
-        password = "MailVSH2023"
+    # JSON data to be sent in the POST request
+    json_data = {
+        "subject": subject,
+        "toEmail": toEmail,
+        "bodyHtml": bodyHtml
+    }
 
-        message = MIMEMultipart()
-        message["Subject"] = subject
-        message["From"] = from_email
-        message["To"] = to_email
+    # Sending a POST request with JSON data
+    response = requests.post(url, json=json_data)
 
-        # Attach HTML content
-        body_html = MIMEText(bodyHtml, "html")
-        message.attach(body_html)
-
-        with smtplib.SMTP("smtp-mail.outlook.com", 587) as server:
-            server.starttls()
-            server.login(from_email, password)
-            server.sendmail(from_email, to_email, message.as_string())
-        print(f"Mail sent successfully to {to_email}")
-        return True
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return False
+    # Handling the response
+    if response.status_code == 200:
+        print("POST request was successful!")
+        print("Response:", response.json())
+    else:
+        print("POST request failed with status code:", response.status_code)

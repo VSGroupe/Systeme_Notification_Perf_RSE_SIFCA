@@ -9,7 +9,6 @@ from validation_data import sendAlerteAvantDebutValidation, sendAlerteDebutValid
 
 sendStatsMensuelles()
 
-# Tests : Planification des tâches
 
 def testEnvoiDeMail() :
 
@@ -36,7 +35,7 @@ def testEnvoiDeMail() :
     sendAlerteFinValidation()
     time.sleep(60 * 10)
 
-schedule.every().day.at("00:00").do(lambda: testEnvoiDeMail() if datetime.now().day % 3 == 0 else None )
+schedule.every().day.at("00:00").do(lambda: testEnvoiDeMail() if datetime.now().day % 1 == 0 else None )
 
 # Planification des tâches des statistiques de collecte et de consolidation des données
 
