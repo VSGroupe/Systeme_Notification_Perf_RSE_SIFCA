@@ -1,5 +1,5 @@
 # Collecte
-from global_data import lienPerfRSE
+from global_data import lienPerfRSE, testMail
 from utils import sendMail
 
 # Alerte avant le début du mois N : 28 du mois N-1
@@ -309,7 +309,7 @@ def sendAlerteCollecte() :
     """
 
     subject = "Rappel : Période de Collecte des Données - Sucrivoire-Siège"
-    recipient_email = "fabdev6@gmail.com"
+    recipient_email = testMail
     sendMail(subject, alerteCollecte, recipient_email)
 
 def sendAlerteFinCollecte() :

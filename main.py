@@ -7,8 +7,7 @@ from statistiques import sendStatsMensuelles, sendStatsMiParcours
 from validation_data import sendAlerteAvantDebutValidation, sendAlerteDebutValidation, sendAlerteValidation, \
     sendAlerteFinValidation
 
-sendStatsMensuelles()
-
+sendAlerteCollecte()
 
 def testEnvoiDeMail() :
 
