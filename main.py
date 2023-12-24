@@ -7,36 +7,6 @@ from statistiques import sendStatsMensuelles, sendStatsMiParcours
 from validation_data import sendAlerteAvantDebutValidation, sendAlerteDebutValidation, sendAlerteValidation, \
     sendAlerteFinValidation
 
-sendAlerteCollecte()
-
-def testEnvoiDeMail() :
-
-    sendStatsMensuelles()
-    time.sleep(60*10)
-    sendStatsMiParcours()
-    time.sleep(60 * 10)
-
-    sendAlerteAvantCollecte()
-    time.sleep(60 * 10)
-    sendAlerteCollecte()
-    time.sleep(60 * 10)
-    sendAlerteCollecte()
-    time.sleep(60 * 10)
-    sendAlerteFinCollecte()
-    time.sleep(60 * 10)
-
-    sendAlerteAvantDebutValidation()
-    time.sleep(60 * 10)
-    sendAlerteDebutValidation()
-    time.sleep(60 * 10)
-    sendAlerteValidation()
-    time.sleep(60 * 10)
-    sendAlerteFinValidation()
-    time.sleep(60 * 10)
-
-schedule.every().day.at("00:00").do(lambda: testEnvoiDeMail() if datetime.now().day % 1 == 0 else None )
-
-# Planification des tâches des statistiques de collecte et de consolidation des données
 
 schedule.every().day.at("00:00").do(lambda: sendStatsMensuelles() if datetime.now().day == 2 else None)
 schedule.every().day.at("00:00").do(lambda: sendStatsMiParcours() if datetime.now().day in [10, 15, 20, 25] else None)

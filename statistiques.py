@@ -306,5 +306,5 @@ def sendStatsMiParcours():
     </body>
     </html>"""
     subject = "Statistiques Mensuelles - Sucrivoire-Siège"
-    recipient_email = "fabdev6@gmail.com"
+    recipient_email = testMail
     sendMail(subject, statsMiParcours, recipient_email)

@@ -1,4 +1,4 @@
-from global_data import lienPerfRSE
+from global_data import lienPerfRSE, testMail
 from utils import sendMail
 
 
@@ -106,7 +106,7 @@ def sendAlerteAvantDebutValidation() :
     """
 
     subject = "Notification : Période de Validation des Données - Sucrivoire-Siège"
-    recipient_email = "fabdev6@gmail.com"
+    recipient_email = testMail
     sendMail(subject, alerteAvantDebutValidation, recipient_email)
 
 
@@ -210,7 +210,7 @@ def sendAlerteDebutValidation() :
     """
 
     subject = "Annonce : Début de la Période de Validation des Données - Sucrivoire-Siège"
-    recipient_email = "fabdev6@gmail.com"
+    recipient_email = testMail
     sendMail(subject, alerteDebutValidation, recipient_email)
 
 
@@ -313,7 +313,7 @@ def sendAlerteValidation() :
     """
 
     subject = "Rappel : Période de Validation des Données - Sucrivoire-Siège"
-    recipient_email = "fabdev6@gmail.com"
+    recipient_email = testMail
     sendMail(subject, alerteValidation, recipient_email)
 
 
@@ -416,7 +416,7 @@ def sendAlerteFinValidation() :
     """
 
     subject = "Alerte : Période de Fin de la Validation des Données - Sucrivoire-Siège"
-    recipient_email = "fabdev6@gmail.com"
+    recipient_email = testMail
     sendMail(subject, alerteFinDeValidation, recipient_email)
 
 

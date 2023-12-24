@@ -1,2 +1,2 @@
 lienPerfRSE = "https://performance-rse-sifca.web.app"
-testMail = "huehanou.houessou@gmail.com"
+testMail = "fabdev6@gmail.com"

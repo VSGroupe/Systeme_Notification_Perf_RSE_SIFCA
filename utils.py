@@ -1,6 +1,7 @@
 import requests
 
 def sendMail(subject, bodyHtml, toEmail):
+
     url = 'https://api-send-mail.onrender.com/api/send-mail'
 
     # JSON data to be sent in the POST request

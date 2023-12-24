@@ -104,9 +104,8 @@ def sendAlerteAvantCollecte() :
     </html>
     '''
     subject = "Notification : Période de Collecte de Données - Sucrivoire-Siège"
-    recipient_emails = ["fabdev6@gmail.com","ing@visionstrategie.com"]
-    for email in recipient_emails :
-        sendMail(subject, alerteAvantLeDebutDeLaCollecte, email)
+    recipient_email = testMail
+    sendMail(subject, alerteAvantLeDebutDeLaCollecte, recipient_email)
 
 def sendAlerteDebutCollecte() :
 
@@ -207,7 +206,7 @@ def sendAlerteDebutCollecte() :
     """
 
     subject = "Annonce : Début de la Période de Collecte des Données - Sucrivoire-Siège"
-    recipient_email = "fabdev6@gmail.com"
+    recipient_email = testMail
     sendMail(subject, alerteCollecte, recipient_email)
 
 def sendAlerteCollecte() :
@@ -411,5 +410,5 @@ def sendAlerteFinCollecte() :
     """
 
     subject = "Alerte : Fin de la Période de Collecte des Données - Sucrivoire-Siège"
-    recipient_email = "fabdev6@gmail.com"
+    recipient_email = testMail
     sendMail(subject, alerteAvantLaFinDeLaCollecte, recipient_email)
