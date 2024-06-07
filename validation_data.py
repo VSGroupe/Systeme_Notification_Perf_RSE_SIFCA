@@ -16,6 +16,11 @@ def sendAlerteAvantDebutValidation() :
     mois_suivant = convert_month_to_french(mois_suivant)
 
     response = supabase.table('AccesPilotage').select('email, nom_entite, Users(nom, prenom)').eq("est_validateur", True).execute().data
+    responseAdmin = supabase.table('AccesPilotage').select('email, nom_entite, Users(nom, prenom)').eq('est_admin', True).execute().data
+
+    if responseAdmin:
+        for user in responseAdmin:
+            response.append(user)
 
     dictionnaire_utilisateurs = {}
 
@@ -129,7 +134,7 @@ def sendAlerteAvantDebutValidation() :
     for mail in listEmail :
         name = dictionnaire_utilisateurs[mail][0][0]
         entity = dictionnaire_utilisateurs[mail][1]
-        subject = f"Notification : Période de Validation des Données - {entity}"
+        subject = f"Notification : Période de Validation des Données"
         sendMail(subject, mailBody(nom=name, entite=entity), mail)
 
 
@@ -139,6 +144,11 @@ def sendAlerteDebutValidation() :
     current_month = convert_month_to_french(current_month)
 
     response = supabase.table('AccesPilotage').select('email, nom_entite, Users(nom, prenom)').eq("est_validateur", True).execute().data
+    responseAdmin = supabase.table('AccesPilotage').select('email, nom_entite, Users(nom, prenom)').eq('est_admin', True).execute().data
+
+    if responseAdmin:
+        for user in responseAdmin:
+            response.append(user)
 
     dictionnaire_utilisateurs = {}
 
@@ -222,8 +232,8 @@ def sendAlerteDebutValidation() :
                 </div>
                 <div class="content">
                     <p>Bonjour M. {nom},</p>
-                    <p>Nous sommes ravis de vous informer que la période de validation de données de <strong>{entite}</strong> a officiellement commencé. La validation se poursuivra jusqu'au <span class="red-text">15 {current_month}</span>.</p>
-                    <p>Nous vous encourageons à participer activement en vérifiant et validant les informations fournies pendant la période de collecte. Veuillez vous connecter au cadre de validation de données dans <a href="{lienPerfRSE}" class="link-text">votre tableau de bord ({entite})</a> pour contribuer au processus de validation de données.</p>
+                    <p>Nous sommes ravis de vous informer que la période de validation de données a officiellement commencé. La validation se poursuivra jusqu'au <span class="red-text">15 {current_month}</span>.</p>
+                    <p>Nous vous encourageons à participer activement en vérifiant et validant les informations fournies pendant la période de collecte. Veuillez vous connecter au cadre de validation de données dans <a href="{lienPerfRSE}" class="link-text">votre tableau de bord</a> pour contribuer au processus de validation de données.</p>
 
                     <!-- Validation de données section -->
                     <div class="saisie-section">
@@ -253,7 +263,7 @@ def sendAlerteDebutValidation() :
     for mail in listEmail :
         name = dictionnaire_utilisateurs[mail][0][0]
         entity = dictionnaire_utilisateurs[mail][1]
-        subject = f"Annonce : Début de la Période de Validation des Données - {entity}"
+        subject = f"Annonce : Début de la Période de Validation des Données"
         sendMail(subject, mailBody(nom=name, entite=entity), mail)
 
 
@@ -263,6 +273,11 @@ def sendAlerteValidation() :
     current_month = convert_month_to_french(current_month)
 
     response = supabase.table('AccesPilotage').select('email, nom_entite, Users(nom, prenom)').eq("est_validateur", True).execute().data
+    responseAdmin = supabase.table('AccesPilotage').select('email, nom_entite, Users(nom, prenom)').eq('est_admin', True).execute().data
+
+    if responseAdmin:
+        for user in responseAdmin:
+            response.append(user)
 
     dictionnaire_utilisateurs = {}
 
@@ -346,8 +361,8 @@ def sendAlerteValidation() :
                 </div>
                 <div class="content">
                     <p>Bonjour M. {nom},</p>
-                    <p>Nous vous rappelons que la période de validation de données de <strong>{entite}</strong> a commencé. La validation se poursuivra jusqu'au <span class="red-text">15 {current_month}</span>.</p>
-                    <p>Nous vous encourageons à participer activement en vérifiant et validant les informations fournies pendant la période de collecte. Veuillez vous connecter au cadre de validation de données dans <a href="{lienPerfRSE}" class="link-text">votre tableau de bord ({entite})</a> pour contribuer au processus de validation de données.</p>
+                    <p>Nous vous rappelons que la période de validation de données a commencé. La validation se poursuivra jusqu'au <span class="red-text">15 {current_month}</span>.</p>
+                    <p>Nous vous encourageons à participer activement en vérifiant et validant les informations fournies pendant la période de collecte. Veuillez vous connecter au cadre de validation de données dans <a href="{lienPerfRSE}" class="link-text">votre tableau de bord</a> pour contribuer au processus de validation de données.</p>
 
                     <!-- Saisie de données section -->
                     <div class="saisie-section">
@@ -376,7 +391,7 @@ def sendAlerteValidation() :
     for mail in listEmail :
         name = dictionnaire_utilisateurs[mail][0][0]
         entity = dictionnaire_utilisateurs[mail][1]
-        subject = f"Rappel : Période de Validation des Données - {entity}"
+        subject = f"Rappel : Période de Validation des Données"
         sendMail(subject, mailBody(nom=name, entite=entity), mail)
 
 
@@ -386,6 +401,11 @@ def sendAlerteFinValidation() :
     current_month = convert_month_to_french(current_month)
 
     response = supabase.table('AccesPilotage').select('email, nom_entite, Users(nom, prenom)').eq("est_validateur", True).execute().data
+    responseAdmin = supabase.table('AccesPilotage').select('email, nom_entite, Users(nom, prenom)').eq('est_admin', True).execute().data
+
+    if responseAdmin:
+        for user in responseAdmin:
+            response.append(user)
 
     dictionnaire_utilisateurs = {}
 
@@ -469,8 +489,8 @@ def sendAlerteFinValidation() :
                 </div>
                 <div class="content">
                     <p>Bonjour M. {nom},</p>
-                    <p>Nous vous informons que la période de validation des données de <strong>{entite}</strong> se termine le <span class="red-text">15 {current_month}</span>. Il reste seulement quelques jours pour la saisie des données. Votre contribution est essentielle pour le succès de cette collecte.</p>
-                    <p>Veuillez vous connecter dans <a href="{lienPerfRSE}" class="link-text">votre tableau de bord {entite}</a> pour valider les données.</p>
+                    <p>Nous vous informons que la période de validation des données se termine le <span class="red-text">15 {current_month}</span>. Il reste seulement quelques jours pour la saisie des données. Votre contribution est essentielle pour le succès de cette collecte.</p>
+                    <p>Veuillez vous connecter dans <a href="{lienPerfRSE}" class="link-text">votre tableau de bord</a> pour valider les données.</p>
 
                     <!-- Saisie de données section -->
                     <div class="saisie-section">
@@ -499,7 +519,7 @@ def sendAlerteFinValidation() :
     for mail in listEmail :
         name = dictionnaire_utilisateurs[mail][0][0]
         entity = dictionnaire_utilisateurs[mail][1]
-        subject = f"Alerte : Période de Fin de la Validation des Données - {entity}"
+        subject = f"Alerte : Période de Fin de la Validation des Données"
         sendMail(subject, mailBody(nom=name, entite=entity), mail)
 
 

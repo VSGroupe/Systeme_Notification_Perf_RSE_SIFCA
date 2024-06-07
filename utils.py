@@ -2,7 +2,7 @@ import requests
 
 def sendMail(subject, bodyHtml, toEmail):
 
-    url = 'http://127.0.0.1:4535/send-mail' #https://api-send-mail.onrender.com/api/send-mail
+    url = 'https://api-send-mail-mvxl.onrender.com' #http://127.0.0.1:4535/send-mail #https://api-send-mail-mvxl.onrender.com
 
     # JSON data to be sent in the POST request
     json_data = {

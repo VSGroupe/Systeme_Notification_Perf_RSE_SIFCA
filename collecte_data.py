@@ -99,8 +99,8 @@ def sendAlerteAvantCollecte() :
                 </div>
                 <div class="content">
                     <p>Bonjour M. {nom},</p>
-                    <p>Nous vous informons que la période de collecte des données de <strong>{entite}</strong> débutera le <span class="red-text">1<sup>er</sup> {mois_suivant}</span>. Nous vous prions de bien vouloir participer en fournissant les informations nécessaires.</p>
-                    <p>Veuillez vous connecter <a href="{lienPerfRSE}" class="link-text"> au cadre de saisie des données sur votre tableau de bord</a> pour contribuer au processus de collecte de données.</p>
+                    <p>Nous vous informons que la période de collecte des données débutera le <span class="red-text">1<sup>er</sup> {mois_suivant}</span>. Nous vous prions de bien vouloir participer en fournissant les informations nécessaires.</p>
+                    <p>Veuillez vous connecter <a href="{lienPerfRSE}" class="link-text"> au cadre de saisie des données sur votre tableau de bord</a> pour contribuer au processus de collecte de données de vos filiales.</p>
 
                     <!-- Saisie de données section -->
                     <div class="saisie-section">
@@ -127,7 +127,7 @@ def sendAlerteAvantCollecte() :
     for mail in listEmail :
         name = dictionnaire_utilisateurs[mail][0][0]
         entity = dictionnaire_utilisateurs[mail][1]
-        subject = f"Notification : Période de Collecte de Données - {entity}"
+        subject = f"Notification : Période de Collecte de Données"
         sendMail(subject, mailBody(nom=name, entite=entity), mail)
 
 
@@ -221,8 +221,8 @@ def sendAlerteDebutCollecte() :
                 </div>
                 <div class="content">
                     <p>Bonjour M. {nom},</p>
-                    <p>Nous sommes ravis de vous informer que la période de collecte de données de <strong>{entite}</strong> a officiellement commencé pour ce mois-ci. La collecte se poursuivra jusqu'au <span class="red-text">15 {current_month}</span>.</p>
-                    <p>Nous vous encourageons à participer activement en fournissant les informations nécessaires. Veuillez vous connecter au cadre de saisie de données dans <a href="{lienPerfRSE}" class="link-text">votre tableau de bord (Sucrivoire-Siège)</a> pour contribuer au processus de collecte de données.</p>
+                    <p>Nous sommes ravis de vous informer que la période de collecte de données a officiellement commencé pour ce mois-ci. La collecte se poursuivra jusqu'au <span class="red-text">15 {current_month}</span>.</p>
+                    <p>Nous vous encourageons à participer activement en fournissant les informations nécessaires. Veuillez vous connecter au cadre de saisie de données dans <a href="{lienPerfRSE}" class="link-text">votre tableau de bord</a> pour contribuer au processus de collecte de données.</p>
 
                     <!-- Saisie de données section -->
                     <div class="saisie-section">
@@ -250,7 +250,7 @@ def sendAlerteDebutCollecte() :
     for mail in listEmail :
         name = dictionnaire_utilisateurs[mail][0][0]
         entity = dictionnaire_utilisateurs[mail][1]
-        subject = f"Annonce : Début de la Période de Collecte des Données - {entity}"
+        subject = f"Annonce : Début de la Période de Collecte des Données"
         sendMail(subject, mailBody(nom=name, entite=entity), mail)
 
 def sendAlerteCollecte() :
@@ -342,8 +342,8 @@ def sendAlerteCollecte() :
                 </div>
                 <div class="content">
                     <p>Bonjour M. {nom},</p>
-                    <p>Nous sommes ravis de vous informer que la période de collecte de données de <strong>{entite}</strong> a commencé pour ce mois-ci. La collecte se poursuivra jusqu'au <span class="red-text">15 {current_month}</span>.</p>
-                    <p>Nous vous encourageons à participer activement en fournissant les informations nécessaires. Veuillez vous connecter au cadre de saisie de données dans <a href="{lienPerfRSE}" class="link-text">votre tableau de bord ({entite})</a> pour contribuer au processus de collecte de données.</p>
+                    <p>Nous sommes ravis de vous informer que la période de collecte de données a commencé pour ce mois-ci. La collecte se poursuivra jusqu'au <span class="red-text">15 {current_month}</span>.</p>
+                    <p>Nous vous encourageons à participer activement en fournissant les informations nécessaires. Veuillez vous connecter au cadre de saisie de données dans <a href="{lienPerfRSE}" class="link-text">votre tableau de bord </a> pour contribuer au processus de collecte de données.</p>
 
                     <!-- Saisie de données section -->
                     <div class="saisie-section">
@@ -372,7 +372,7 @@ def sendAlerteCollecte() :
     for mail in listEmail :
         name = dictionnaire_utilisateurs[mail][0][0]
         entity = dictionnaire_utilisateurs[mail][1]
-        subject = f"Rappel : Période de Collecte des Données - {entity}"
+        subject = f"Rappel : Période de Collecte des Données"
         sendMail(subject, mailBody(nom=name, entite=entity), mail)
 
 def sendAlerteFinCollecte() :
@@ -464,8 +464,8 @@ def sendAlerteFinCollecte() :
                 </div>
                 <div class="content">
                     <p>Bonjour M. {nom},</p>
-                    <p>Nous vous informons que la période de collecte de données de <strong>{entite}</strong> se termine le <span class="red-text">15 {current_month}</span>. Il reste seulement quelques jours pour la sasie des données. Votre contribution est essentielle pour le succès de cette collecte.</p>
-                    <p>Veuillez vous connecter  au cadre de saisie de données dans <a href="{lienPerfRSE}" class="link-text"> votre tableau de bord {entite}</a>  pour contribuer au processus de collecte de données.</p>
+                    <p>Nous vous informons que la période de collecte de données se termine le <span class="red-text">15 {current_month}</span>. Il reste seulement quelques jours pour la sasie des données. Votre contribution est essentielle pour le succès de cette collecte.</p>
+                    <p>Veuillez vous connecter  au cadre de saisie de données dans <a href="{lienPerfRSE}" class="link-text"> votre tableau de bord</a>  pour contribuer au processus de collecte de données.</p>
 
                     <!-- Saisie de données section -->
                     <div class="saisie-section">
@@ -494,5 +494,5 @@ def sendAlerteFinCollecte() :
     for mail in listEmail :
         name = dictionnaire_utilisateurs[mail][0][0]
         entity = dictionnaire_utilisateurs[mail][1]
-        subject = f"Alerte : Fin de la Période de Collecte des Données - {entity}"
+        subject = f"Alerte : Fin de la Période de Collecte des Données"
         sendMail(subject, mailBody(nom=name, entite=entity), mail)
